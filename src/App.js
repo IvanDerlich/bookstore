@@ -1,29 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import PropTypes from 'prop-types';
 import { createStore } from 'redux'
-import mainReducer from './reducers/combination'
+import mainReducer from './reducers/index'
+import BooksList from './containers/BookList'
+import BookForm from './containers/BookForm'
 
 function App(props) {
   const store = createStore(mainReducer);
   const books = store.getState().books
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>{props.dummyText}</div>
-        <div>{props.defaultText}</div>
+      <BookForm/>
+      <BooksList>
         <ul>
           {books.map((book) => {
             return (
@@ -31,8 +19,8 @@ function App(props) {
             )
           })
           }
-        </ul>
-      </header>
+        </ul>   
+      </BooksList> 
     </div>
   );
 }
