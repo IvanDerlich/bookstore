@@ -5,7 +5,7 @@ import mainReducer from './reducers/index'
 import BooksList from './containers/BookList'
 import BookForm from './containers/BookForm'
 
-function App(props) {
+function App(props) {   
   const store = createStore(mainReducer);
   const books = store.getState().books
   return (
