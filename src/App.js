@@ -13,7 +13,7 @@ function App(/* props */) {
   return (
     <div className="App">
       <Provider store={store}>
-        <Test name="string" />
+        <Test />
         <BookForm />
         <BooksList books={books} />
       </Provider>
