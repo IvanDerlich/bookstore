@@ -2,10 +2,12 @@ import book from './book'
 
 const initialState = [
   {
+    id: 1,
     title: "The Little Prince",
     completed: false
   },
   {
+    id: 2,
     title: "The Odisey",
     completed: true
   }

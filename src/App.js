@@ -1,6 +1,7 @@
 import './App.css';
 import PropTypes from 'prop-types';
 import { createStore } from 'redux'
+import { Provider } from 'react-redux';
 import mainReducer from './reducers/index'
 import BooksList from './containers/BookList'
 import BookForm from './containers/BookForm'
@@ -10,17 +11,19 @@ function App(props) {
   const books = store.getState().books
   return (
     <div className="App">
-      <BookForm/>
-      <BooksList>
-        <ul>
-          {books.map((book) => {
-            return (
-            <li>{book.title}</li>
-            )
-          })
-          }
-        </ul>   
-      </BooksList> 
+      <Provider store={store}>
+        <BookForm/>        
+        <BooksList>
+          <ul>
+            {books.map((book) => {
+              return (
+              <li id={book.id}>{book.title}</li>
+              )
+            })
+            }
+          </ul>   
+        </BooksList> 
+      </Provider>
     </div>
   );
 }
