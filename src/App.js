@@ -13,13 +13,7 @@ function App(/* props */) {
     <div className="App">
       <Provider store={store}>
         <BookForm />
-        <BooksList>
-          <ul>
-            {books.map(book => (
-              <li key={book.id} id={book.id}>{book.title}</li>
-            ))}
-          </ul>
-        </BooksList>
+        <BooksList books={books} />
       </Provider>
     </div>
   );
