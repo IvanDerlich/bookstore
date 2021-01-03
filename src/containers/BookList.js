@@ -1,8 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 function BookList(props) {
-  return(
-    <div>
-
-    </div>
-  )
+  return (
+    <div />
+  );
 }
-export default BookList
+export default BookList;
