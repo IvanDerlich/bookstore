@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import mainReducer from './reducers/index';
 import BooksList from './containers/BookList';
 import BookForm from './containers/BookForm';
-import Test from './components/Test';
 
 function App(/* props */) {
   const store = createStore(mainReducer);
@@ -13,7 +12,6 @@ function App(/* props */) {
   return (
     <div className="App">
       <Provider store={store}>
-        <Test />
         <BookForm />
         <BooksList books={books} />
       </Provider>
