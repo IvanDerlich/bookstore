@@ -1,26 +1,36 @@
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Book from '../components/Book';
+import './Booklist.css';
 
 function BookList(props) {
   const { books } = props;
   return (
-    <div>
-      <ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Completed</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
         {books.map(book => (
-          <li key={book.id} id={book.id}>{book.title}</li>
+          // eslint-disable-next-line react/jsx-key
+          <Book key={book.id} book={book} />
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </table>
   );
 }
 
 BookList.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.number,
-      title: PropTypes.string,
-      completed: PropTypes.bool,
-    }),
-  ).isRequired,
+  books: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default BookList;
+const mapStateToProps = state => ({
+  books: state.books,
+});
+
+export default connect(mapStateToProps)(BookList);

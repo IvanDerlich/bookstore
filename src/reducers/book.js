@@ -6,7 +6,7 @@ const book = (bookState, action) => {
         title: action.title,
         completed: false,
       };
-    case 'TOGGLE_BOOK':
+    case 'TOGGLE_COMPLETED':
       if (bookState.id !== action.id) {
         return bookState;
       }
