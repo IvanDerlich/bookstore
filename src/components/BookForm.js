@@ -12,9 +12,9 @@ class BookForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Hi',
+      title: '',
       completed: true,
-      category: 'kids',
+      category: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -26,6 +26,7 @@ class BookForm extends React.Component {
     const category = target.category.value;
     const completed = target.completed.value;
     // console.log(event.target);
+    console.clear();
     console.log(title, '<- title');
     console.log(category, '<- category');
     console.log(completed, '<- completed');
@@ -58,7 +59,8 @@ class BookForm extends React.Component {
             onChange={this.handleChange}
             name="category"
           >
-            <option value="Action">Action</option>
+            <option value="">--Please choose an option--</option>
+            <option value="action">Action</option>
             <option value="biography">Biography</option>
             <option value="history">History</option>
             <option value="horror">Horror</option>

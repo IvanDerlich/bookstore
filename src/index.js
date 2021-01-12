@@ -1,20 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+/* eslint-disable no-trailing-spaces */
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import mainReducer from './reducers/index';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import mainReducer from './reducers/index';
+import { createBook, removeBook } from './actions/index';
+import randomId from './helpers/randomId';
 
-const store = createStore(mainReducer);
+const initialState = {
+  books: [{
+    id: randomId(),
+    title: 'The Little Prince',
+    completed: false,
+    category: 'kids',
+  },
+  {
+    id: randomId(),
+    title: 'The Odisey',
+    completed: true,
+    category: 'learning',
+  }],
+  visibilityFilter: 'SHOW_ALL',
+};
+const store = createStore(mainReducer, initialState);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+const book1 = {
+  id: randomId(),
+  title: 'Aesop\'s fables',
+  completed: false,
+  category: 'kids',
+};
+createBook(book1, store.dispatch);
+
+const book2 = {
+  id: randomId(),
+  title: 'Lord of the Rings',
+  completed: false,
+  category: 'fiction',
+};
+
+createBook(book2, store.dispatch);
+removeBook(book2, store.dispatch);
+
+ReactDOM.render(  
+  <React.StrictMode>
+    <Provider store={store}>    
+      <App />    
+    </Provider>
+  </React.StrictMode>,
   document.getElementById('root'),
 );
 

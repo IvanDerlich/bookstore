@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import capitalize from '../helpers/capitalize';
 
 function Book({ book }) {
   const {
@@ -9,7 +10,9 @@ function Book({ book }) {
       <td>{id}</td>
       <td>{title}</td>
       <td>{completed ? 'true' : 'false'}</td>
-      <td>{category}</td>
+      <td>
+        {capitalize(category)}
+      </td>
     </tr>
   );
 }

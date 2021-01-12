@@ -1,21 +1,6 @@
 import book from './book';
 
-const initialState = [
-  {
-    id: 1,
-    title: 'The Little Prince',
-    completed: false,
-    category: 'fiction',
-  },
-  {
-    id: 2,
-    title: 'The Odisey',
-    completed: true,
-    category: 'fiction',
-  },
-];
-
-const books = (state = initialState, action) => {
+const books = (state = [], action) => {
   switch (action.type) {
     case 'ADD_BOOK':
       return [
@@ -25,8 +10,7 @@ const books = (state = initialState, action) => {
     case 'TOGGLE_COMPLETED':
       return state.map(book => book(book, action));
     case 'REMOVE_BOOK':
-      // remove an element from an array
-      return {};
+      return state.filter(book => book.id !== action.id);
     case 'EDIT_CATEGORY':
       return {};
     case 'EDIT_TITLE':
