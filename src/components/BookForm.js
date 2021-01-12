@@ -5,7 +5,11 @@
 // a select box with categories and a
 // submit button.
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './BookForm.css';
+import { createBook } from '../actions';
+import randomId from '../helpers/randomId';
 
 // eslint-disable-next-line no-unused-vars
 class BookForm extends React.Component {
@@ -17,23 +21,38 @@ class BookForm extends React.Component {
       category: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const { target } = event;
-    const title = target.title.value;
-    const category = target.category.value;
-    const completed = target.completed.value;
+    const { dispatch, books } = this.props;
+    // const title = target.title.value;
+    // const category = target.category.value;
+    // const completed = target.completed.value;
     // console.log(event.target);
     // eslint-disable-next-line no-console
-    console.clear();
+    const book = {
+      id: randomId(),
+      title: target.title.value,
+      category: target.category.value,
+    };
+    // console.clear();
     // eslint-disable-next-line no-console
-    console.log(title, '<- title');
-    // eslint-disable-next-line no-console
-    console.log(category, '<- category');
-    // eslint-disable-next-line no-console
-    console.log(completed, '<- completed');
+    // console.log(book, 'book');
+
+    createBook(book, dispatch);
+    const bookInStore = books.filter(b => b.id === book.id);
+    if (bookInStore !== book) {
+      // eslint-disable-next-line no-console
+      console.error('Data inconsistency handling book submit. Book in store is not the same as the book submited.');
+    }
+    this.setState({
+      title: book.title,
+      completed: book.completed,
+      category: book.category,
+    });
   }
 
   handleChange(event) {
@@ -87,4 +106,14 @@ class BookForm extends React.Component {
     );
   }
 }
-export default BookForm;
+
+BookForm.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  books: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+const mapStateToProps = state => ({
+  books: state.books,
+});
+
+export default connect(mapStateToProps)(BookForm);
