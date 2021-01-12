@@ -26,9 +26,13 @@ class BookForm extends React.Component {
     const category = target.category.value;
     const completed = target.completed.value;
     // console.log(event.target);
+    // eslint-disable-next-line no-console
     console.clear();
+    // eslint-disable-next-line no-console
     console.log(title, '<- title');
+    // eslint-disable-next-line no-console
     console.log(category, '<- category');
+    // eslint-disable-next-line no-console
     console.log(completed, '<- completed');
   }
 
