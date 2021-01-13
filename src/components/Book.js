@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import capitalize from '../helpers/capitalize';
 import './Book.css';
-import { removeBook } from '../actions/index';
+import { REMOVE_BOOK } from '../actions/index';
 
 function Book({ book, dispatch }) {
   const {
@@ -12,7 +11,7 @@ function Book({ book, dispatch }) {
   } = book;
 
   const handleRemoveBook = (book, dispatch) => {
-    removeBook(book, dispatch);
+    REMOVE_BOOK(book, dispatch);
   };
 
   return (
@@ -43,4 +42,4 @@ Book.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-export default connect()(Book);
+export default Book;

@@ -1,4 +1,4 @@
-export const createBook = (book, dispatch) => {
+export const CREATE_BOOK = (book, dispatch) => {
   dispatch({
     type: 'ADD_BOOK',
     id: book.id,
@@ -7,9 +7,16 @@ export const createBook = (book, dispatch) => {
   });
 };
 
-export const removeBook = (book, dispatch) => {
+export const REMOVE_BOOK = (book, dispatch) => {
   dispatch({
     type: 'REMOVE_BOOK',
     id: book.id,
+  });
+};
+
+export const CHANGE_FILTER = (category, dispatch) => {
+  dispatch({
+    type: 'CHANGE_FILTER',
+    category,
   });
 };

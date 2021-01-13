@@ -4,7 +4,7 @@ import booksReducer from './books';
 /* Please try to optimize this code using the before each function
  described in the jest documentation */
 
-describe('Team Reducer', () => {
+describe('Team Reducer Books', () => {
   it('Should return the initial state with undefined state', () => {
     const initialState = undefined;
     // deepFreeze(initialState); cannot freeze undefinded variables

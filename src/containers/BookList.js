@@ -4,7 +4,13 @@ import Book from '../components/Book';
 import './Booklist.css';
 
 function BookList(props) {
-  const { books } = props;
+  const { filter } = props;
+  let { books } = props;
+  console.log(books, 'books');
+  console.log(filter, 'filter');
+  if (filter !== 'all') {
+    books = books.filter(book => book.category === filter);
+  }
 
   return (
     <table>
@@ -29,10 +35,12 @@ function BookList(props) {
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   books: state.books,
+  filter: state.categoryFilter,
 });
 
 export default connect(mapStateToProps)(BookList);
