@@ -23,7 +23,12 @@ function Book({ book, dispatch }) {
       <td>
         {capitalize(category)}
       </td>
-      <td className="trash-icon center-text" onClick={() => handleRemoveBook(book, dispatch)}><i className="fas fa-trash" /></td>
+      <td
+        className="trash-icon center-text"
+        onClick={() => handleRemoveBook(book, dispatch)}
+      >
+        <i className="fas fa-trash" />
+      </td>
     </tr>
   );
 }
