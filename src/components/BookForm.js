@@ -27,27 +27,16 @@ class BookForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { target } = event;
-    const { dispatch, books } = this.props;
-    // const title = target.title.value;
-    // const category = target.category.value;
-    // const completed = target.completed.value;
-    // console.log(event.target);
-    // eslint-disable-next-line no-console
+    const { dispatch } = this.props;
+
     const book = {
       id: randomId(),
       title: target.title.value,
       category: target.category.value,
     };
-    // console.clear();
-    // eslint-disable-next-line no-console
-    // console.log(book, 'book');
 
     createBook(book, dispatch);
-    const bookInStore = books.filter(b => b.id === book.id);
-    if (bookInStore !== book) {
-      // eslint-disable-next-line no-console
-      console.error('Data inconsistency handling book submit. Book in store is not the same as the book submited.');
-    }
+
     this.setState({
       title: book.title,
       completed: book.completed,
@@ -109,11 +98,6 @@ class BookForm extends React.Component {
 
 BookForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  books: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-const mapStateToProps = state => ({
-  books: state.books,
-});
-
-export default connect(mapStateToProps)(BookForm);
+export default connect()(BookForm);
