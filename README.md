@@ -1,5 +1,11 @@
 # Bookstore
 
+  A software for a Bookstore that:
+  - Adds books.
+  - Removes books.
+  - Edit books.
+  - Filter books by category.
+
 ## Demo
 
 ![](/ReadmeDocs/1.png)

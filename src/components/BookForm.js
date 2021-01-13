@@ -17,6 +17,7 @@ class BookForm extends React.Component {
     super(props);
     this.state = {
       title: '',
+      completed: true,
       category: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -37,8 +38,9 @@ class BookForm extends React.Component {
     createBook(book, dispatch);
 
     this.setState({
-      title: '',
-      category: '',
+      title: book.title,
+      completed: book.completed,
+      category: book.category,
     });
   }
 
@@ -50,7 +52,7 @@ class BookForm extends React.Component {
   }
 
   render() {
-    const { title, category } = this.state;
+    const { title, completed, category } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="title">
@@ -78,6 +80,15 @@ class BookForm extends React.Component {
             <option value="learning">Learning</option>
             <option value="sci-fi">Sci-Fi</option>
           </select>
+        </label>
+        <label htmlFor="completed">
+          Completed:
+          <input
+            name="completed"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            defaultChecked={completed}
+          />
         </label>
         <input type="submit" value="Add" />
       </form>
