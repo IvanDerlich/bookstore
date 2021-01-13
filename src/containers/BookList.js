@@ -14,7 +14,7 @@ function BookList(props) {
           <th>Title</th>
           <th>Completed</th>
           <th>Category</th>
-          <th className="center-text">Remove</th>
+          <th className="remove-title center-text">Remove</th>
         </tr>
       </thead>
       <tbody>
