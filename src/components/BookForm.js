@@ -17,7 +17,6 @@ class BookForm extends React.Component {
     super(props);
     this.state = {
       title: '',
-      completed: true,
       category: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -50,7 +49,6 @@ class BookForm extends React.Component {
     }
     this.setState({
       title: book.title,
-      completed: book.completed,
       category: book.category,
     });
   }
