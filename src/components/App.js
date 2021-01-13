@@ -1,6 +1,6 @@
 import './App.css';
-import BooksList from './containers/BookList';
-import BookForm from './components/BookForm';
+import BooksList from '../containers/BookList';
+import BookForm from '../containers/BookForm';
 
 function App(/* props */) {
   return (
