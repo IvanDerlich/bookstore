@@ -1,40 +1,53 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Book from '../components/Book';
 import './Booklist.css';
+import Book from '../components/Book';
+import CategoryFilter from '../components/CategoryFilter';
+import { REMOVE_BOOK } from '../actions/index';
 
-function BookList(props) {
-  const { filter } = props;
-  let { books } = props;
-  console.log(books, 'books');
-  console.log(filter, 'filter');
-  if (filter !== 'all') {
-    books = books.filter(book => book.category === filter);
-  }
+function BookList({ books, dispatch, filter }) {
+  const filteredBooks = filter === 'all'
+    ? books
+    : books.filter(book => book.category === filter);
+
+  const handleRemoveBook = book => {
+    REMOVE_BOOK(book, dispatch);
+  };
+
+  const handleFilterUpdate = filter => {
+    const action = {
+      type: 'CHANGE_FILTER',
+      categoryFilter: filter,
+    };
+    dispatch(action);
+  };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Title</th>
-          <th>Completed</th>
-          <th>Category</th>
-          <th className="remove-title center-text">Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        {books.map(book => (
-          // eslint-disable-next-line react/jsx-key
-          <Book key={book.id} book={book} />
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <CategoryFilter handleFilterUpdate={handleFilterUpdate} />
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Completed</th>
+            <th>Category</th>
+            <th className="remove-title center-text">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredBooks.map(book => (
+            <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
+  dispatch: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
 };
 

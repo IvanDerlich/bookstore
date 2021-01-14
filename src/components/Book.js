@@ -3,16 +3,11 @@
 import PropTypes from 'prop-types';
 import capitalize from '../helpers/capitalize';
 import './Book.css';
-import { REMOVE_BOOK } from '../actions/index';
 
-function Book({ book, dispatch }) {
+function Book({ book, handleRemoveBook }) {
   const {
     id, title, completed, category,
   } = book;
-
-  const handleRemoveBook = (book, dispatch) => {
-    REMOVE_BOOK(book, dispatch);
-  };
 
   return (
     <tr>
@@ -24,7 +19,7 @@ function Book({ book, dispatch }) {
       </td>
       <td
         className="trash-icon center-text"
-        onClick={() => handleRemoveBook(book, dispatch)}
+        onClick={() => handleRemoveBook(book)}
       >
         <i className="fas fa-trash" />
       </td>
@@ -39,7 +34,7 @@ Book.propTypes = {
     completed: PropTypes.bool.isRequired,
     category: PropTypes.string.isRequired,
   }).isRequired,
-  dispatch: PropTypes.func.isRequired,
+  handleRemoveBook: PropTypes.func.isRequired,
 };
 
 export default Book;

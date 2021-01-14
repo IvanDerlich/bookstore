@@ -13,39 +13,26 @@ class CategoryFilter extends React.Component {
   }
 
   handleFilterChange(event) {
+    const { handleFilterUpdate } = this.props;
     const { value, name } = event.target;
-    // eslint-disable-next-line no-unused-vars
-    const { dispatch } = this.props;
-    const { category } = this.state;
-    console.clear();
-    console.log(value, '<- value');
-    console.log(category, '<- category');
-
-    const action = {
-      type: 'CHANGE_FILTER',
-      categoryFilter: category,
-    };
-    console.log(action, 'action');
-    dispatch(action);
-
     this.setState({
       [name]: value,
     });
+    handleFilterUpdate(value);
   }
 
   render() {
-    const text = 'Pick the category filter';
     const { category } = this.state;
     return (
       <div>
         <label htmlFor="category">
-          {text}
+          Pick the category filter
           <select
             value={category}
             onChange={this.handleFilterChange}
             name="category"
           >
-            <option value="">--Please choose an option--</option>
+            <option value="all">--Please choose an option--</option>
             <option value="all">All</option>
             <option value="action">Action</option>
             <option value="biography">Biography</option>
@@ -62,7 +49,7 @@ class CategoryFilter extends React.Component {
 }
 
 CategoryFilter.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  handleFilterUpdate: PropTypes.func.isRequired,
 };
 
 export default connect()(CategoryFilter);
