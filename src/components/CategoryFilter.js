@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import './CategoryFilter.css';
 
 class CategoryFilter extends React.Component {
   constructor(props) {
