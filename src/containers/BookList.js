@@ -6,7 +6,7 @@ import CategoryFilter from '../components/CategoryFilter';
 import { REMOVE_BOOK } from '../actions/index';
 
 function BookList({ books, dispatch, filter }) {
-  const filteredBooks = filter === 'all'
+  const filteredBooks = filter === ''
     ? books
     : books.filter(book => book.category === filter);
 

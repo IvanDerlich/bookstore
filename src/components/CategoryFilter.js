@@ -31,8 +31,7 @@ class CategoryFilter extends React.Component {
             onChange={this.handleFilterChange}
             name="category"
           >
-            <option value="all">--Please choose an option--</option>
-            <option value="all">All</option>
+            <option value="">All</option>
             <option value="action">Action</option>
             <option value="biography">Biography</option>
             <option value="history">History</option>

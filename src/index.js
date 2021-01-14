@@ -34,7 +34,7 @@ const initialState = {
     completed: false,
     category: 'learning',
   }],
-  categoryFilter: 'all',
+  categoryFilter: '',
 };
 const store = createStore(mainReducer, initialState);
 

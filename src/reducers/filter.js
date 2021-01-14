@@ -1,5 +1,5 @@
 const filter = (
-  state = 'all',
+  state = '',
   action,
 ) => {
   switch (action.type) {
