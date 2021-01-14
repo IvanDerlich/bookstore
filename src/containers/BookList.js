@@ -2,9 +2,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Book from '../components/Book';
 import './Booklist.css';
+import { removeBook } from '../actions/index';
 
 function BookList(props) {
-  const { books } = props;
+  const { books, dispatch } = props;
+
+  const handleRemoveBook = book => {
+    removeBook(book, dispatch);
+  };
 
   return (
     <table>
@@ -20,7 +25,7 @@ function BookList(props) {
       <tbody>
         {books.map(book => (
           // eslint-disable-next-line react/jsx-key
-          <Book key={book.id} book={book} />
+          <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
         ))}
       </tbody>
     </table>
@@ -29,6 +34,7 @@ function BookList(props) {
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
