@@ -11,13 +11,21 @@ class CategoryFilter extends React.Component {
     this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
+  handleFilterUpdate = filter => {
+    const { dispatch } = this.props;
+    const action = {
+      type: 'CHANGE_FILTER',
+      categoryFilter: filter,
+    };
+    dispatch(action);
+  };
+
   handleFilterChange(event) {
-    const { handleFilterUpdate } = this.props;
     const { value, name } = event.target;
     this.setState({
       [name]: value,
     });
-    handleFilterUpdate(value);
+    this.handleFilterUpdate(value);
   }
 
   render() {
@@ -47,7 +55,7 @@ class CategoryFilter extends React.Component {
 }
 
 CategoryFilter.propTypes = {
-  handleFilterUpdate: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect()(CategoryFilter);

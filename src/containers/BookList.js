@@ -14,17 +14,9 @@ function BookList({ books, dispatch, filter }) {
     REMOVE_BOOK(book, dispatch);
   };
 
-  const handleFilterUpdate = filter => {
-    const action = {
-      type: 'CHANGE_FILTER',
-      categoryFilter: filter,
-    };
-    dispatch(action);
-  };
-
   return (
     <div>
-      <CategoryFilter handleFilterUpdate={handleFilterUpdate} />
+      <CategoryFilter />
       <table>
         <thead>
           <tr>
