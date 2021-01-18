@@ -32,9 +32,9 @@ const initialState = {
     id: randomId(),
     title: 'Lord of the Rings',
     completed: false,
-    category: 'fiction',
+    category: 'learning',
   }],
-  visibilityFilter: 'SHOW_ALL',
+  categoryFilter: '',
 };
 const store = createStore(mainReducer, initialState);
 

@@ -1,44 +1,59 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Book from '../components/Book';
 import './Booklist.css';
-import { removeBook } from '../actions/index';
+import Book from '../components/Book';
+import CategoryFilter from '../components/CategoryFilter';
+import { REMOVE_BOOK } from '../actions/index';
 
-function BookList(props) {
-  const { books, dispatch } = props;
+function BookList({ books, dispatch, filter }) {
+  const filteredBooks = filter === ''
+    ? books
+    : books.filter(book => book.category === filter);
 
   const handleRemoveBook = book => {
-    removeBook(book, dispatch);
+    REMOVE_BOOK(book, dispatch);
+  };
+
+  const handleFilterUpdate = filter => {
+    const action = {
+      type: 'CHANGE_FILTER',
+      categoryFilter: filter,
+    };
+    dispatch(action);
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Title</th>
-          <th>Completed</th>
-          <th>Category</th>
-          <th className="remove-title center-text">Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        {books.map(book => (
-          // eslint-disable-next-line react/jsx-key
-          <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <CategoryFilter handleFilterUpdate={handleFilterUpdate} />
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Completed</th>
+            <th>Category</th>
+            <th className="remove-title center-text">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredBooks.map(book => (
+            <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
   dispatch: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   books: state.books,
+  filter: state.categoryFilter,
 });
 
 export default connect(mapStateToProps)(BookList);

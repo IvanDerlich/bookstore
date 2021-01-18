@@ -8,7 +8,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './BookForm.css';
-import { createBook } from '../actions';
+import { CREATE_BOOK } from '../actions';
 import randomId from '../helpers/randomId';
 
 // eslint-disable-next-line no-unused-vars
@@ -34,7 +34,7 @@ class BookForm extends React.Component {
       category: target.category.value,
     };
 
-    createBook(book, dispatch);
+    CREATE_BOOK(book, dispatch);
 
     this.setState({
       title: '--Type the title--',

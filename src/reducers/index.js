@@ -3,8 +3,8 @@
 
 import { combineReducers } from 'redux';
 import books from './books';
-import visibilityFilter from './visibilityFilter';
+import categoryFilter from './filter';
 
-const reducer = combineReducers({ books, visibilityFilter });
+const reducer = combineReducers({ books, categoryFilter });
 
 export default reducer;
