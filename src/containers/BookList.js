@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './Booklist.css';
 import Book from '../components/Book';
-import CategoryFilter from '../components/CategoryFilter';
+import CategoryFilter from './CategoryFilter';
 import { REMOVE_BOOK } from '../actions/index';
 
 function BookList({ books, dispatch, filter }) {
