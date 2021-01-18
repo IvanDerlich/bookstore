@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './Booklist.css';
 import Book from '../components/Book';
-import CategoryFilter from './CategoryFilter';
 import { REMOVE_BOOK } from '../actions/index';
 
 function BookList({ books, dispatch, filter }) {
@@ -16,7 +15,6 @@ function BookList({ books, dispatch, filter }) {
 
   return (
     <div>
-      <CategoryFilter />
       <table>
         <thead>
           <tr>

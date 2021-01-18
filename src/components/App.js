@@ -2,11 +2,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-unused-vars */
 import {
-  BrowserRouter, Link, Route, Switch,
+  BrowserRouter, Link, Route, Switch, Redirect,
 } from 'react-router-dom';
 import './App.css';
 import BooksList from '../containers/BookList';
 import BookForm from '../containers/BookForm';
+import CategoryFilter from '../containers/CategoryFilter';
 
 function App(/* props */) {
   function featureNotImplemented(id) {
@@ -24,14 +25,16 @@ function App(/* props */) {
         </nav>
         <Switch>
           <Route path="/categories">
-            <div>Categories</div>
+            <CategoryFilter />
           </Route>
           <Route path="/books">
-            <div>Books</div>
+            <BookForm />
+            <BooksList />
+          </Route>
+          <Route path="/">
+            <Redirect to="/books" />
           </Route>
         </Switch>
-        <BookForm />
-        <BooksList />
       </BrowserRouter>
       <div
         className="popup"
