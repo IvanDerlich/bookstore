@@ -1,0 +1,7 @@
+<button
+  type="button"
+  className="button-cat"
+>
+  Edit Categories
+</button>
+<span className="popuptext" id="edit-categories-popup">Edit categories not implented yet.</span>

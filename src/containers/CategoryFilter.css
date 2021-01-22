@@ -1,6 +1,10 @@
+.categories-container {
+  margin: 0 40px;
+}
+
 .button-cat {
   width: 100%;
-  background-color: #4caf50;
+  background-color: #0290ff;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -10,5 +14,5 @@
 }
 
 .button-cat:hover {
-  background-color: #45a049;
+  background-color: #0079d6;
 }

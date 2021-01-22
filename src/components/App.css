@@ -83,21 +83,57 @@
 /* Toggle this class - hide and show the popup */
 .popup .show {
   visibility: visible;
-  -webkit-animation: fadeIn 1s;
+  -webkit-animation: fadein 1s;
   animation: fadeIn 1s;
 }
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-ul#nav-menu li{
-  display:inline;
+nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+ul.nav-menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.menu-option {
+  margin: 0 20px;
+  padding-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.menu-option a {
+  text-decoration: none;
+  color: #121212;
+  opacity: 0.5;
+}
+
+.opaque a {
+  opacity: 1;
+}
+
+.menu-option a:active {
+  opacity: 1;
+}
+
+.app-title {
+  color: #0290ff;
+  font-size: 30px;
+  font-weight: 700;
 }

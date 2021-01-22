@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import './Booklist.css';
 import Book from '../components/Book';
 import { REMOVE_BOOK } from '../actions/index';
 
@@ -15,20 +14,9 @@ function BookList({ books, dispatch, filter }) {
 
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>1st body</th>
-            <th>2nd body</th>
-            <th>3rd body</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredBooks.map(book => (
-            <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
-          ))}
-        </tbody>
-      </table>
+      {filteredBooks.map(book => (
+        <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+      ))}
     </div>
   );
 }

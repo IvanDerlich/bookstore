@@ -52,8 +52,8 @@ class BookForm extends React.Component {
   render() {
     const { title, category } = this.state;
     return (
-      <form id="book-form" onSubmit={this.handleSubmit}>
-        <div>
+      <form id="book-form" className="book-form" onSubmit={this.handleSubmit}>
+        <div className="title-container">
           <input
             type="text"
             value={title}
@@ -64,7 +64,7 @@ class BookForm extends React.Component {
             placeholder="Book Title"
           />
         </div>
-        <div>
+        <div className="category-container">
           <select
             value={category}
             onChange={this.handleChange}
@@ -81,7 +81,7 @@ class BookForm extends React.Component {
             <option value="sci-fi">Sci-Fi</option>
           </select>
         </div>
-        <div><input type="submit" value="Add" /></div>
+        <div className="submit-container"><input type="submit" value="Add" /></div>
       </form>
     );
   }

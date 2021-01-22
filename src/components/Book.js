@@ -15,8 +15,8 @@ function Book({ book, handleRemoveBook }) {
   };
 
   return (
-    <tr>
-      <td>
+    <div>
+      <div className="first-body">
         <div>
           <span>
             {id}
@@ -39,14 +39,14 @@ function Book({ book, handleRemoveBook }) {
           </span>
           <span>| Edit</span>
         </div>
-      </td>
-      <td>{completed ? 'true' : 'false'}</td>
-      <td>
+      </div>
+      <div className="second-body">{completed ? 'true' : 'false'}</div>
+      <div className="third-body">
         <div>Current Chapter</div>
         <div>Chapter X: Chapter Title</div>
         <div>Update Progress</div>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 }
 

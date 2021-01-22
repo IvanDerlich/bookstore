@@ -1,4 +1,11 @@
-.trash-icon {
-  width: 5%;
-  cursor: pointer;
+.first-body {
+  background-color: blueviolet;
+}
+
+.second-body {
+  background-color: burlywood;
+}
+
+.third-body {
+  background-color: chartreuse;
 }
