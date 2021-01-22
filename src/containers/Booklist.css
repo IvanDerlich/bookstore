@@ -14,7 +14,3 @@ th {
 tr:nth-child(even) {
   background-color: #ddd;
 }
-
-.remove-title {
-  width: 5%;
-}

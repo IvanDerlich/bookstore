@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './CategoryFilter.css';
 
 class CategoryFilter extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class CategoryFilter extends React.Component {
             <option value="sci-fi">Sci-Fi</option>
           </select>
         </label>
+        <button onClick={() => console.log('Clicked!')} type="button" className="button-cat"> Edit Categories</button>
       </div>
     );
   }

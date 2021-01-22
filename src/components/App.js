@@ -18,21 +18,22 @@ function App(/* props */) {
     <div className="App">
       <BrowserRouter>
         <nav>
-          <ul>
-            <li><Link to="/categories">Categories</Link></li>
-            <li><Link to="/books">Books</Link></li>
+          <ul id="nav-menu">
+            <li>Bookstore CMS</li>
+            <li><Link to="/home">| Books</Link></li>
+            <li><Link to="/categories">| Categories</Link></li>
           </ul>
         </nav>
         <Switch>
           <Route path="/categories">
             <CategoryFilter />
           </Route>
-          <Route path="/books">
+          <Route path="/home">
             <BookForm />
             <BooksList />
           </Route>
           <Route path="/">
-            <Redirect to="/books" />
+            <Redirect to="/home" />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -18,11 +18,9 @@ function BookList({ books, dispatch, filter }) {
       <table>
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Completed</th>
-            <th>Category</th>
-            <th className="remove-title center-text">Remove</th>
+            <th>1st body</th>
+            <th>2nd body</th>
+            <th>3rd body</th>
           </tr>
         </thead>
         <tbody>

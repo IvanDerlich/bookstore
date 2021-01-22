@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import PropTypes from 'prop-types';
 import capitalize from '../helpers/capitalize';
 import './Book.css';
@@ -9,19 +8,43 @@ function Book({ book, handleRemoveBook }) {
     id, title, completed, category,
   } = book;
 
+  const enterPressedOnDelete = event => {
+    if (event.charCode === 13) {
+      handleRemoveBook(book);
+    }
+  };
+
   return (
     <tr>
-      <td>{id}</td>
-      <td>{title}</td>
+      <td>
+        <div>
+          <span>
+            {id}
+          </span>
+          <span>
+            {` | ${capitalize(category)}`}
+          </span>
+        </div>
+        <h2>{title}</h2>
+        <h5>Author</h5>
+        <div>
+          <span>Comments </span>
+          <span
+            role="button"
+            onClick={() => handleRemoveBook(book)}
+            onKeyPress={enterPressedOnDelete}
+            tabIndex={0}
+          >
+            | Remove
+          </span>
+          <span>| Edit</span>
+        </div>
+      </td>
       <td>{completed ? 'true' : 'false'}</td>
       <td>
-        {capitalize(category)}
-      </td>
-      <td
-        className="trash-icon center-text"
-        onClick={() => handleRemoveBook(book)}
-      >
-        <i className="fas fa-trash" />
+        <div>Current Chapter</div>
+        <div>Chapter X: Chapter Title</div>
+        <div>Update Progress</div>
       </td>
     </tr>
   );
