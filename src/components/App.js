@@ -35,7 +35,9 @@ function App(/* props */) {
             <li className="menu-option nav-books" onClick={() => toggleOpaqueness('books')} id="books-link"><Link to="/home">Books</Link></li>
             <li className="menu-option nav-categories" onClick={() => toggleOpaqueness('categories')} id="categories-link"><Link to="/categories">Categories</Link></li>
           </ul>
-          <div><i className="fas fa-user-alt" /></div>
+          <div className="user-icon-container">
+            <i className="fas fa-user-alt user-icon" />
+          </div>
         </nav>
         <Switch>
           <Route path="/categories">
@@ -43,6 +45,7 @@ function App(/* props */) {
           </Route>
           <Route path="/home">
             <BooksList />
+            <div className="form-title">Add New Book</div>
             <BookForm />
           </Route>
           <Route path="/">

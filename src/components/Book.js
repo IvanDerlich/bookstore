@@ -15,7 +15,7 @@ function Book({ book, handleRemoveBook }) {
   };
 
   return (
-    <div>
+    <div className="book-container">
       <div className="first-body">
         <div>
           <span>

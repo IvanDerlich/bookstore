@@ -36,7 +36,7 @@ class CategoryFilter extends React.Component {
     return (
       <div className="categories-container">
         <label htmlFor="category">
-          Pick the category filter
+          Pick the category filter:
           <select
             value={category}
             onChange={this.handleFilterChange}

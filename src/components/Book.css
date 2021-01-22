@@ -1,11 +1,22 @@
+.book-container{
+  background-color: lightslategray;
+  display: flex;
+  border: 1px solid black;
+  margin: 0 40px;
+  margin-bottom: 10px;
+}
+
 .first-body {
   background-color: blueviolet;
+  width:54%;
 }
 
 .second-body {
   background-color: burlywood;
+  width:23%;
 }
 
 .third-body {
   background-color: chartreuse;
+  width:23%;
 }

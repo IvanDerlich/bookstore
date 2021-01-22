@@ -29,22 +29,22 @@ input[type=submit]:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0px 40px;
 }
 
 .title-container {
   width: 50%;
-  min-width: 300px;
   padding: 0 20px;
+  padding-left: 0;
 }
 
 .category-container {
   width: 30%;
-  min-width: 300px;
   padding: 0 20px;
 }
 
 .submit-container {
   width: 20%;
-  min-width: 150px;
   padding: 0 20px;
+  padding-right: 0;
 }

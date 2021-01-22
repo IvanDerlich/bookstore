@@ -80,6 +80,8 @@
   border-color: #555 transparent transparent transparent;
 }
 
+
+
 /* Toggle this class - hide and show the popup */
 .popup .show {
   visibility: visible;
@@ -136,4 +138,24 @@ ul.nav-menu {
   color: #0290ff;
   font-size: 30px;
   font-weight: 700;
+  margin-right: 26px;
 }
+
+.user-icon{
+  color: #0290ff;
+  font-size: 30px;
+}
+.user-icon-container{
+  padding-top: 16px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.form-title{
+  margin-left: 40px;
+  text-transform: uppercase;
+  text-align: left;
+  color: #888888;
+  font-weight: bold;
+}
+
