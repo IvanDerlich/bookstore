@@ -1,22 +1,103 @@
 .book-container{
-  background-color: lightslategray;
   display: flex;
-  border: 1px solid black;
+  border: 1px solid #e8e8e8;
   margin: 0 40px;
   margin-bottom: 10px;
+  text-align: left;
+  font-family: 'Roboto Slab', serif;
+}
+
+.book-container>*{
+  padding: 20px 40px;
 }
 
 .first-body {
-  background-color: blueviolet;
-  width:54%;
+  width:50%;
 }
 
 .second-body {
-  background-color: burlywood;
-  width:23%;
+  width:30%;
+  border-right: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
 }
 
 .third-body {
-  background-color: chartreuse;
   width:23%;
+}
+
+.category-type{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #121212;
+  opacity: 50%;
+}
+
+.book-title-display{
+  font-size: 22px;
+  letter-spacing: -0.2px;
+  font-weight: bold;
+}
+
+.water-blue{
+  color: #4386bf
+}
+
+.auxiliary{
+  margin-top: 20px;  
+}
+
+.auxiliary *{  
+  margin-right: 20px;
+  font-size: 14px;
+}
+
+.completed, .percentage{
+  color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+.completed{
+  font-size: 14px;
+  opacity: .5;
+  margin-right: 20px;
+}
+.percentage{
+  font-size: 32px;
+}
+
+.circular-bar{
+  margin-right: 15px;
+}
+
+.remove-link{
+  cursor: pointer;
+}
+
+.current-chapter{
+  color: #121212;
+  opacity: .5;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.chapter-name-and-number{
+  color: #121212;
+  letter-spacing: -0.4px;
+  size: 16px;
+  margin-bottom: 20px;
+}
+
+.update-progress{
+  background-color: #0290ff;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  height: 33px;
+  display: table-cell;
+  vertical-align: middle;
+  width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }

@@ -32,7 +32,7 @@ function App(/* props */) {
         <nav>
           <ul className="nav-menu" id="nav-menu">
             <li className="app-title">Bookstore CMS</li>
-            <li className="menu-option nav-books" onClick={() => toggleOpaqueness('books')} id="books-link"><Link to="/home">Books</Link></li>
+            <li className="menu-option nav-books opaque" onClick={() => toggleOpaqueness('books')} id="books-link"><Link to="/home">Books</Link></li>
             <li className="menu-option nav-categories" onClick={() => toggleOpaqueness('categories')} id="categories-link"><Link to="/categories">Categories</Link></li>
           </ul>
           <div className="user-icon-container">
