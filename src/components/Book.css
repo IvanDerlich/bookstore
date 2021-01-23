@@ -1,4 +1,4 @@
-.book-container{
+.book-container {
   display: flex;
   border: 1px solid #e8e8e8;
   margin: 0 40px;
@@ -7,16 +7,16 @@
   font-family: 'Roboto Slab', serif;
 }
 
-.book-container>*{
+.book-container > * {
   padding: 20px 40px;
 }
 
 .first-body {
-  width:50%;
+  width: 50%;
 }
 
 .second-body {
-  width:30%;
+  width: 30%;
   border-right: 1px solid #e8e8e8;
   display: flex;
   flex-direction: row;
@@ -24,10 +24,10 @@
 }
 
 .third-body {
-  width:23%;
+  width: 23%;
 }
 
-.category-type{
+.category-type {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   margin-left: 10px;
@@ -35,63 +35,65 @@
   opacity: 50%;
 }
 
-.book-title-display{
+.book-title-display {
   font-size: 22px;
   letter-spacing: -0.2px;
   font-weight: bold;
 }
 
-.water-blue{
-  color: #4386bf
+.water-blue {
+  color: #4386bf;
 }
 
-.auxiliary{
-  margin-top: 20px;  
+.auxiliary {
+  margin-top: 20px;
 }
 
-.auxiliary *{  
+.auxiliary * {
   margin-right: 20px;
   font-size: 14px;
 }
 
-.completed, .percentage{
+.completed,
+.percentage {
   color: #121212;
   font-family: 'Montserrat', sans-serif;
 }
-.completed{
+
+.completed {
   font-size: 14px;
-  opacity: .5;
+  opacity: 0.5;
   margin-right: 20px;
 }
-.percentage{
+
+.percentage {
   font-size: 32px;
 }
 
-.circular-bar{
+.circular-bar {
   margin-right: 15px;
 }
 
-.remove-link{
+.remove-link {
   cursor: pointer;
 }
 
-.current-chapter{
+.current-chapter {
   color: #121212;
-  opacity: .5;
+  opacity: 0.5;
   text-transform: uppercase;
   font-size: 13px;
 }
 
-.chapter-name-and-number{
+.chapter-name-and-number {
   color: #121212;
   letter-spacing: -0.4px;
-  size: 16px;
   margin-bottom: 20px;
 }
 
-.update-progress{
+.update-progress {
   background-color: #0290ff;
-  color: #ffffff;
+  color: #fff;
   font-size: 13px;
   text-align: center;
   height: 33px;

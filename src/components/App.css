@@ -141,21 +141,21 @@ ul.nav-menu {
   margin-right: 26px;
 }
 
-.user-icon{
+.user-icon {
   color: #0290ff;
   font-size: 30px;
 }
-.user-icon-container{
+
+.user-icon-container {
   padding-top: 16px;
   margin-right: 40px;
   cursor: pointer;
 }
 
-.form-title{
+.form-title {
   margin-left: 40px;
   text-transform: uppercase;
   text-align: left;
-  color: #888888;
+  color: #888;
   font-weight: bold;
 }
-
