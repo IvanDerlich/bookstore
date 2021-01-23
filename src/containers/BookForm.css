@@ -1,6 +1,3 @@
-/* label{
-  display: block;
-} */
 input[type=text],
 select {
   width: 100%;
@@ -14,8 +11,8 @@ select {
 
 input[type=submit] {
   width: 100%;
-  background-color: #4caf50;
-  color: white;
+  background-color: #0290ff;
+  color: #fff;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -24,11 +21,30 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #0079d6;
 }
 
-div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+.book-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 40px;
+}
+
+.title-container {
+  width: 50%;
+  padding: 0 20px;
+  padding-left: 0;
+}
+
+.category-container {
+  width: 30%;
+  padding: 0 20px;
+}
+
+.submit-container {
+  width: 20%;
+  padding: 0 20px;
+  padding-right: 0;
 }

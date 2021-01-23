@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import './Booklist.css';
 import Book from '../components/Book';
-import CategoryFilter from '../components/CategoryFilter';
 import { REMOVE_BOOK } from '../actions/index';
 
 function BookList({ books, dispatch, filter }) {
@@ -14,33 +12,11 @@ function BookList({ books, dispatch, filter }) {
     REMOVE_BOOK(book, dispatch);
   };
 
-  const handleFilterUpdate = filter => {
-    const action = {
-      type: 'CHANGE_FILTER',
-      categoryFilter: filter,
-    };
-    dispatch(action);
-  };
-
   return (
     <div>
-      <CategoryFilter handleFilterUpdate={handleFilterUpdate} />
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Completed</th>
-            <th>Category</th>
-            <th className="remove-title center-text">Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredBooks.map(book => (
-            <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
-          ))}
-        </tbody>
-      </table>
+      {filteredBooks.map(book => (
+        <Book key={book.id} book={book} handleRemoveBook={handleRemoveBook} />
+      ))}
     </div>
   );
 }

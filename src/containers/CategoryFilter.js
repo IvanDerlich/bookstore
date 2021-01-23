@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './CategoryFilter.css';
 
 class CategoryFilter extends React.Component {
   constructor(props) {
@@ -12,20 +15,28 @@ class CategoryFilter extends React.Component {
   }
 
   handleFilterChange(event) {
-    const { handleFilterUpdate } = this.props;
     const { value, name } = event.target;
+    const { dispatch } = this.props;
     this.setState({
       [name]: value,
     });
-    handleFilterUpdate(value);
+    dispatch({
+      type: 'CHANGE_FILTER',
+      categoryFilter: value,
+    });
   }
 
   render() {
+    const featureNotImplemented = id => {
+      const popup = document.getElementById(id);
+      popup.classList.toggle('show');
+    };
+
     const { category } = this.state;
     return (
-      <div>
+      <div className="categories-container">
         <label htmlFor="category">
-          Pick the category filter
+          Pick the category filter:
           <select
             value={category}
             onChange={this.handleFilterChange}
@@ -41,13 +52,25 @@ class CategoryFilter extends React.Component {
             <option value="sci-fi">Sci-Fi</option>
           </select>
         </label>
+        <div
+          className="popup"
+          onClick={() => featureNotImplemented('myPopup')}
+        >
+          <button
+            type="button"
+            className="button-cat"
+          >
+            Edit Categories
+          </button>
+          <span className="popuptext" id="myPopup">Not implented yet.</span>
+        </div>
       </div>
     );
   }
 }
 
 CategoryFilter.propTypes = {
-  handleFilterUpdate: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect()(CategoryFilter);

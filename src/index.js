@@ -8,6 +8,7 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import mainReducer from './reducers/index';
 import randomId from './helpers/randomId';
+import './reset.css';
 
 const initialState = {
   books: [{
